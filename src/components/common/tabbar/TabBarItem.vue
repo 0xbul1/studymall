@@ -18,7 +18,7 @@
       path: String,
       activeColor:{
         type: String,
-        default: '#f60'
+        default: '#f90'
       }
     },
     data(){
