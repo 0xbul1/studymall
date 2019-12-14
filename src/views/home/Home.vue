@@ -5,11 +5,13 @@
     </nav-bar>
     <home-swiper :banners="banners">
     </home-swiper>
+    <recommend :recommends="recommends"/>
   </div>
 </template>
 <script>
   import NavBar from 'components/common/navbar/NavBar'
   import HomeSwiper from './childComps/HomeSwiper'
+  import Recommend from './childComps/Recommend'
 
   import { getHomeMultidata } from 'network/home'
   import { Swiper,SwiperItem} from 'components/common/swiper'
@@ -17,7 +19,8 @@
     name: "Home",
     components: {
       NavBar,
-      HomeSwiper  
+      HomeSwiper,
+      Recommend
     },
     data() {
       return {
