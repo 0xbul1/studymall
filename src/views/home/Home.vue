@@ -7,7 +7,9 @@
     </home-swiper>
     <recommend :recommends="recommends"/>
     <feature-view/>
-    <tab-control :titles="['流行','新款','精选']"/>
+    <tab-control :titles="['流行','新款','精选']"
+            class="tab-control"
+    />
     <div>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis consequuntur?
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis consequuntur?
@@ -75,6 +77,9 @@
   }
 </script>
 <style scoped>
+  #home {
+    padding-top: 44px;
+  }
   .home-nav {
     background: var(--color-tint);
     color: #fff;
@@ -85,7 +90,8 @@
     bottom: 0;
     z-index: 1;
   }
-  #home {
-    padding-top: 44px;
+  .tab-control {
+    position: sticky;
+    top: 44px;    
   }
 </style>

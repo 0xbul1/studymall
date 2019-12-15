@@ -1,6 +1,10 @@
 <template>
   <div class="tab-control">
-    <div v-for="item in titles">
+    <div v-for="(item, index) in titles" 
+         class="tab-control-item"
+        :class="{active: currentIndex===index}"
+        @click=clickTabItem(index)
+          >
       <span>{{item}}</span>
     </div>
   </div>
@@ -13,9 +17,35 @@
         type: Array,
         default: []
       }
+    },
+    data(){
+      return {
+        currentIndex: 0
+      }
+    },
+    methods: {
+      clickTabItem(index){
+        this.currentIndex = index;
+      }
     }
   }
 </script>
 <style scoped>
-
+.tab-control {
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  line-height: 40px;
+  background-color: #fff;
+}
+.tab-control-item {
+  flex: 1;
+}
+.active {
+  color: var(--color-high-text);
+}
+.active span {
+  border-bottom: 1px solid var(--color-high-text);
+  padding-bottom: 4px;
+}
 </style>
