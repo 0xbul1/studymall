@@ -45,7 +45,7 @@
   color: var(--color-high-text);
 }
 .active span {
-  border-bottom: 1px solid var(--color-high-text);
+  border-bottom: 2px solid var(--color-high-text);
   padding-bottom: 4px;
 }
 </style>
