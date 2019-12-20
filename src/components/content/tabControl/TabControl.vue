@@ -37,12 +37,16 @@
   font-size: 14px;
   line-height: 40px;
   background-color: #fff;
+  
+
 }
 .tab-control-item {
   flex: 1;
 }
 .active {
   color: var(--color-high-text);
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 .active span {
   border-bottom: 2px solid var(--color-high-text);

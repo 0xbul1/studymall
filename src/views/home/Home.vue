@@ -8,7 +8,8 @@
     <recommend :recommends="recommends" />
     <feature-view />
     <tab-control :titles="['流行','新款','精选']" class="tab-control" />
-    <div>
+    <goods-list :goods="goods['pop'].list" />
+    <!-- <div>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
       excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
       consequuntur?
@@ -86,12 +87,13 @@
       consequuntur?
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
       excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perfer
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
   import NavBar from 'components/common/navbar/NavBar'
   import tabControl from 'components/content/tabControl/TabControl'
+  import GoodsList from 'components/content/goods/GoodsList'
 
   import HomeSwiper from './childComps/HomeSwiper'
   import Recommend from './childComps/Recommend'
@@ -104,6 +106,7 @@
     components: {
       NavBar,
       tabControl,
+      GoodsList,
 
       HomeSwiper,
       Recommend,
@@ -131,6 +134,7 @@
     },
     created() {
       this.getHomeMultidata();
+
       this.getHomeGoods('pop');
       this.getHomeGoods('new');
       this.getHomeGoods('sell');
