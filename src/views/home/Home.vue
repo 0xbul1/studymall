@@ -179,5 +179,6 @@
   .tab-control {
     position: sticky;
     top: 44px;
+    
   }
 </style>

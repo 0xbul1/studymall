@@ -1,64 +1,74 @@
 <template>
   <div class="goods-list-item">
     <!-- <a :href="goodsItem.link"> -->
-      <img :src="goodsItem.show.img">
+    <img :src="goodsItem.show.img">
+    <div class="goods-info">
       <p>{{goodsItem.title}}</p>
-      <div class="title">
-        <span class="price">{{goodsItem.price}}</span>
-        <span class="cfav">{{goodsItem.cfav}}</span>
-      </div>
+      <span class="price">{{goodsItem.price}}</span>
+      <span class="cfav">{{goodsItem.cfav}}</span>
+    </div>
     <!-- </a> -->
   </div>
 </template>
 <script>
-export default {
-  name: 'GoodsListItem',
-  props: {
-    goodsItem:{
-      type: Object,
-      default(){
-        return {}
+  export default {
+    name: 'GoodsListItem',
+    props: {
+      goodsItem: {
+        type: Object,
+        default() {
+          return {}
+        }
       }
     }
   }
-}
 </script>
 <style scoped>
-.goods-list-item {
-  width: 48%;
-  font-size: 12px;
-  text-align: center;
-}
-img {
-  width: 100%;
-  border-radius: 5px;
-}
-.goods-list-item p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.title {
-  display: flex;
-  justify-content: space-evenly;
-}
-.price, .cfav {
-  color: var(--color-tint);
-}
-.price::before {
-  content: '¥';
-  color: var(--color-text);
-  /* color: var(--color-tint); */
-}
-.cfav::before {
-  content: '';
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  vertical-align: top;
-  background-color: #000;
-  background: url('~assets/img/common/collect.svg');
-  background-repeat: no-repeat;
-  background-size: 12px 12px; 
-}
+  .goods-list-item {
+    width: 48%;
+    padding-bottom: 40px;
+    position: relative;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+
+  .goods-info {
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .goods-info p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 3px;
+  }
+
+  .goods-info .price {
+    color: var(--color-high-text);
+    margin-right: 20px;
+  }
+
+  .goods-info .cfav {
+    position: relative;
+  }
+
+  .goods-info .cfav::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background: url("~assets/img/common/collect.svg") 0 0/14px 14px;
+  }
 </style>
