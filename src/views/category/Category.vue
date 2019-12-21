@@ -111,6 +111,6 @@ export default {};
 .content {
   height: 150px;
   overflow-y: scroll;
-  background: #ccc;
+  background: pink;
 }
 </style>
