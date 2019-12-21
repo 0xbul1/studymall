@@ -13,85 +13,6 @@
         @tabClick="tabClick"
       />
       <goods-list :goods="showGoods" />
-      <!-- <div>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
-      consequuntur?
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
-      excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perfer
-    </div> -->
     </scroll>
   </div>
 </template>
@@ -190,8 +111,9 @@ export default {
 </script>
 <style scoped>
 #home {
-  /* padding-top: 44px; */
+  padding-top: 44px;
   height: 100vh;
+  position: relative;
 }
 
 .home-nav {
@@ -205,13 +127,17 @@ export default {
   z-index: 1;
 }
 
-.tab-control {
+/* .tab-control {
   position: sticky;
   top: 44px;
-}
+} */
 .scroll-content {
-  height: calc(100% - 93px);
+  /* background: red; */
+  position: absolute;
   overflow: hidden;
-  margin-top: 44px;
+  top: 44px;
+  bottom: 49px;
+  left: 0;
+  right: 0;
 }
 </style>
