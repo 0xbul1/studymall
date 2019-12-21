@@ -3,16 +3,17 @@
     <nav-bar class="home-nav">
       <div slot="center">香菇街</div>
     </nav-bar>
-    <home-swiper :banners="banners"> </home-swiper>
-    <recommend :recommends="recommends" />
-    <feature-view />
-    <tab-control
-      :titles="['流行', '新款', '精选']"
-      class="tab-control"
-      @tabClick="tabClick"
-    />
-    <goods-list :goods="showGoods" />
-    <!-- <div>
+    <scroll class="scroll-content">
+      <home-swiper :banners="banners"> </home-swiper>
+      <recommend :recommends="recommends" />
+      <feature-view />
+      <tab-control
+        :titles="['流行', '新款', '精选']"
+        class="tab-control"
+        @tabClick="tabClick"
+      />
+      <goods-list :goods="showGoods" />
+      <!-- <div>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
       excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perferendis, explicabo debitis
       consequuntur?
@@ -91,10 +92,12 @@
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae sunt voluptate aut quae fuga fugiat dolore
       excepturi nisi nobis voluptas optio vitae expedita veniam dignissimos natus perfer
     </div> -->
+    </scroll>
   </div>
 </template>
 <script>
 import NavBar from "components/common/navbar/NavBar";
+import Scroll from "components/common/scroll/Scroll";
 import tabControl from "components/content/tabControl/TabControl";
 import GoodsList from "components/content/goods/GoodsList";
 
@@ -108,6 +111,7 @@ export default {
   name: "Home",
   components: {
     NavBar,
+    Scroll,
     tabControl,
     GoodsList,
 
@@ -186,7 +190,8 @@ export default {
 </script>
 <style scoped>
 #home {
-  padding-top: 44px;
+  /* padding-top: 44px; */
+  height: 100vh;
 }
 
 .home-nav {
@@ -203,5 +208,10 @@ export default {
 .tab-control {
   position: sticky;
   top: 44px;
+}
+.scroll-content {
+  height: calc(100% - 93px);
+  overflow: hidden;
+  margin-top: 44px;
 }
 </style>
