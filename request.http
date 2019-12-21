@@ -1,1 +1,7 @@
-get http://106.54.54.237:8000/api/v1/home/multidata 
+@url=http://106.54.54.237:8000/api/v1/
+
+###
+GET {{url}}home/multidata 
+
+###
+GET {{url}}home/data?type=pop&page=1 
