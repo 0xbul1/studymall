@@ -3,7 +3,7 @@
     <nav-bar class="home-nav">
       <div slot="center">香菇街</div>
     </nav-bar>
-    <scroll class="scroll-content">
+    <scroll class="scroll-content" ref="scroll">
       <home-swiper :banners="banners"> </home-swiper>
       <recommend :recommends="recommends" />
       <feature-view />
@@ -14,7 +14,7 @@
       />
       <goods-list :goods="showGoods" />
     </scroll>
-    <back-top />
+    <back-top @click.native="clickBackTop" />
   </div>
 </template>
 <script>
@@ -90,6 +90,9 @@ export default {
           this.currentType = "sell";
           break;
       }
+    },
+    clickBackTop() {
+      this.$refs.scroll.scrollTo(0, 0);
     },
 
     // 数据请求的方法

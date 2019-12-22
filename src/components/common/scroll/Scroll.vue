@@ -15,7 +15,14 @@ export default {
     };
   },
   mounted() {
-    this.scroll = new BScroll(this.$refs.wrapper, {});
+    this.scroll = new BScroll(this.$refs.wrapper, {
+      click: true
+    });
+  },
+  methods: {
+    scrollTo(x, y, time = 500) {
+      this.scroll.scrollTo(0, 0, time);
+    }
   }
 };
 </script>
