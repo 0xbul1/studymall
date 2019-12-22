@@ -8,6 +8,8 @@
       ref="scroll"
       :probe-type="3"
       @scroll="contentScroll"
+      :pull-up-load="true"
+      @pullingUp="loadMore"
     >
       <home-swiper :banners="banners"> </home-swiper>
       <recommend :recommends="recommends" />
@@ -52,8 +54,9 @@ export default {
     return {
       banners: [], // 轮播数据
       recommends: [], // 推荐数据
+
+      // 首页tab分类的数据
       goods: {
-        // 首页tab分类的数据
         pop: {
           page: 0,
           list: []
@@ -85,6 +88,8 @@ export default {
   },
   methods: {
     // 事件相关方法
+
+    // 点击切换具体tab
     tabClick(index) {
       switch (index) {
         case 0:
@@ -98,14 +103,22 @@ export default {
           break;
       }
     },
+
+    //点击回到顶部
     clickBackTop() {
       this.$refs.scroll.scrollTo(0, 0);
     },
-    contentScroll(position) {
-      console.log(position);
 
+    //拿到滚动位置
+    contentScroll(position) {
       this.isTopShow = -position.y > 1000;
     },
+
+    // 上拉加载更多
+    loadMore() {
+      this.getHomeGoods(this.currentType);
+    },
+
     // 数据请求的方法
 
     // 请求轮播图和推荐数据
@@ -121,6 +134,7 @@ export default {
       getHomeGoods(type, page).then(res => {
         this.goods[type].list.push(...res.data.list);
         this.goods[type].page += 1;
+        this.$refs.scroll.finishPullUp();
       });
     }
   }
