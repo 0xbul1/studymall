@@ -3,7 +3,12 @@
     <nav-bar class="home-nav">
       <div slot="center">香菇街</div>
     </nav-bar>
-    <scroll class="scroll-content" ref="scroll">
+    <scroll
+      class="scroll-content"
+      ref="scroll"
+      :probe-type="3"
+      @scroll="contentScroll"
+    >
       <home-swiper :banners="banners"> </home-swiper>
       <recommend :recommends="recommends" />
       <feature-view />
@@ -14,7 +19,7 @@
       />
       <goods-list :goods="showGoods" />
     </scroll>
-    <back-top @click.native="clickBackTop" />
+    <back-top @click.native="clickBackTop" v-show="isTopShow" />
   </div>
 </template>
 <script>
@@ -45,9 +50,10 @@ export default {
   },
   data() {
     return {
-      banners: [],
-      recommends: [],
+      banners: [], // 轮播数据
+      recommends: [], // 推荐数据
       goods: {
+        // 首页tab分类的数据
         pop: {
           page: 0,
           list: []
@@ -61,7 +67,8 @@ export default {
           list: []
         }
       },
-      currentType: "pop" //tabcontrol 变量
+      currentType: "pop", //控制当前tabcontrol 变量
+      isTopShow: false // 控制首页回到顶部的组件显示
     };
   },
   computed: {
@@ -94,7 +101,11 @@ export default {
     clickBackTop() {
       this.$refs.scroll.scrollTo(0, 0);
     },
+    contentScroll(position) {
+      console.log(position);
 
+      this.isTopShow = -position.y > 1000;
+    },
     // 数据请求的方法
 
     // 请求轮播图和推荐数据

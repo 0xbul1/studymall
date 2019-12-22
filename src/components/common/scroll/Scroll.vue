@@ -14,14 +14,25 @@ export default {
       scroll: null
     };
   },
+  props: {
+    probeType: {
+      type: Number,
+      default: 0
+    }
+  },
   mounted() {
-    this.scroll = new BScroll(this.$refs.wrapper, {
-      click: true
-    });
+    (this.scroll = new BScroll(this.$refs.wrapper, {
+      click: true,
+      probeType: this.probeType
+    })),
+      this.scroll.on("scroll", position => {
+        this.$emit("scroll", position);
+      });
   },
   methods: {
     scrollTo(x, y, time = 500) {
       this.scroll.scrollTo(0, 0, time);
+      scrollTo;
     }
   }
 };
