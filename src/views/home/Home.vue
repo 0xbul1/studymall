@@ -14,6 +14,7 @@
       />
       <goods-list :goods="showGoods" />
     </scroll>
+    <back-top />
   </div>
 </template>
 <script>
@@ -21,6 +22,7 @@ import NavBar from "components/common/navbar/NavBar";
 import Scroll from "components/common/scroll/Scroll";
 import tabControl from "components/content/tabControl/TabControl";
 import GoodsList from "components/content/goods/GoodsList";
+import BackTop from "components/content/backTop/BackTop";
 
 import HomeSwiper from "./childComps/HomeSwiper";
 import Recommend from "./childComps/Recommend";
@@ -35,6 +37,7 @@ export default {
     Scroll,
     tabControl,
     GoodsList,
+    BackTop,
 
     HomeSwiper,
     Recommend,
