@@ -84,7 +84,8 @@ export default {
       currentType: "pop", //控制当前tabcontrol 变量
       isTopShow: false, // 控制首页回到顶部的组件显示
       tabOffsetTop: 0, // tabControl的offset值
-      isTabFixed: false //控制tabcontrol是否吸顶
+      isTabFixed: false, //控制tabcontrol是否吸顶
+      saveY: 0 // 保存当前页面的位置信息
     };
   },
   computed: {
@@ -101,11 +102,18 @@ export default {
   },
   mounted() {
     // 图片加载完成重新计算beterscroll的防抖
-    const refresh = debounce(this.$refs.scroll.refresh, 500);
+    const refresh = debounce(this.$refs.scroll.refresh, 50);
     this.$bus.$on("goodItemImageLoad", () => {
       // this.$refs.scroll.refresh();
       refresh();
     });
+  },
+  activated() {
+    this.$refs.scroll.scrollTo(0, this.saveY, 0);
+    this.$refs.scroll.refresh(); // 防止莫名回到顶部
+  },
+  deactivated() {
+    this.saveY = this.$refs.scroll.getScrollY();
   },
   methods: {
     // 事件相关方法
