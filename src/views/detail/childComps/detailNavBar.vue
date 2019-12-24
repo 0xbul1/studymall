@@ -24,17 +24,19 @@ export default {
   name: "detailNavBar",
   data() {
     return {
-      title: ["商品", "参数", "评论", "推荐"],
-      currentIndex: 0
+      title: ["商品", "参数", "评论", "推荐"], //详情页导航栏
+      currentIndex: 0 // 当前点击的是哪个
     };
   },
   components: {
     NavBar
   },
   methods: {
+    // 点击详情页的item转换
     detaiilNavItemClick(index) {
       this.currentIndex = index;
     },
+    // 返回按钮点击
     backimgClick() {
       this.$router.back();
     }
