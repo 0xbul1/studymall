@@ -11,13 +11,15 @@
       :pull-up-load="true"
       @pullingUp="loadMore"
     >
-      <home-swiper :banners="banners"> </home-swiper>
+      <home-swiper :banners="banners" @swiperImageLoad="swiperImageLoad">
+      </home-swiper>
       <recommend :recommends="recommends" />
       <feature-view />
       <tab-control
         :titles="['流行', '新款', '精选']"
-        class="tab-control"
         @tabClick="tabClick"
+        ref="tabControl"
+        :class="{ fixed: isTabFixed }"
       />
       <goods-list :goods="showGoods" />
     </scroll>
@@ -74,7 +76,9 @@ export default {
         }
       },
       currentType: "pop", //控制当前tabcontrol 变量
-      isTopShow: false // 控制首页回到顶部的组件显示
+      isTopShow: false, // 控制首页回到顶部的组件显示
+      tabOffsetTop: 0, // tabControl的offset值
+      isTabFixed: false //控制tabcontrol是否吸顶
     };
   },
   computed: {
@@ -90,6 +94,7 @@ export default {
     this.getHomeGoods("sell");
   },
   mounted() {
+    // 图片加载完成重新计算beterscroll的防抖
     const refresh = debounce(this.$refs.scroll.refresh, 500);
     this.$bus.$on("goodItemImageLoad", () => {
       // this.$refs.scroll.refresh();
@@ -121,12 +126,18 @@ export default {
 
     //拿到滚动位置
     contentScroll(position) {
-      this.isTopShow = -position.y > 1000;
+      this.isTopShow = -position.y > 1000; // 返回顶部的按钮显示不显示
+      this.isTabFixed = -position.y > this.tabOffsetTop;
     },
 
     // 上拉加载更多
     loadMore() {
       this.getHomeGoods(this.currentType);
+    },
+    // 轮播图图片加载完成发给home组件
+    swiperImageLoad() {
+      //若图片没有加载，获取到的offsetTop高度是错的
+      this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop;
     },
 
     // 数据请求的方法
@@ -168,16 +179,18 @@ export default {
   z-index: 1;
 }
 
-/* .tab-control {
-  position: sticky;
-  top: 44px;
-} */
 .scroll-content {
   /* background: red; */
   position: absolute;
   overflow: hidden;
   top: 44px;
   bottom: 49px;
+  left: 0;
+  right: 0;
+}
+.fixed {
+  position: fixed;
+  top: 44px;
   left: 0;
   right: 0;
 }
