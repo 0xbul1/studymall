@@ -8,7 +8,7 @@
 <script>
 export default {
   name: "NavBar"
-}
+};
 </script>
 <style scoped>
 .nav-bar {
@@ -16,8 +16,10 @@ export default {
   height: 44px;
   line-height: 44px;
   text-align: center;
+  box-shadow: 0 1px 2px #ccc;
 }
-.left, .right {
+.left,
+.right {
   width: 60px;
 }
 .center {
