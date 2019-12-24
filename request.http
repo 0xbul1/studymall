@@ -5,3 +5,8 @@ GET {{url}}home/multidata
 
 ###
 GET {{url}}home/data?type=pop&page=1 
+
+###
+GET {{url}}detail?iid=1m70y5k
+
+

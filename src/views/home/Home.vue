@@ -110,7 +110,7 @@ export default {
   },
   activated() {
     this.$refs.scroll.scrollTo(0, this.saveY, 0);
-    this.$refs.scroll.refresh(); // 防止莫名回到顶部
+    this.$refs.scroll.refresh(); // 重新刷新，防止回到顶部的bug
   },
   deactivated() {
     this.saveY = this.$refs.scroll.getScrollY();
