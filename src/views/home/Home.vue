@@ -3,6 +3,13 @@
     <nav-bar class="home-nav">
       <div slot="center">香菇街</div>
     </nav-bar>
+    <tab-control
+      :titles="['流行', '新款', '精选']"
+      @tabClick="tabClick"
+      ref="tabControl"
+      class="tab-control-top"
+      v-show="isTabFixed"
+    />
     <scroll
       class="scroll-content"
       ref="scroll"
@@ -19,7 +26,6 @@
         :titles="['流行', '新款', '精选']"
         @tabClick="tabClick"
         ref="tabControl"
-        :class="{ fixed: isTabFixed }"
       />
       <goods-list :goods="showGoods" />
     </scroll>
@@ -163,7 +169,7 @@ export default {
 </script>
 <style scoped>
 #home {
-  padding-top: 44px;
+  /* padding-top: 44px; */
   height: 100vh;
   position: relative;
 }
@@ -171,27 +177,28 @@ export default {
 .home-nav {
   background: var(--color-tint);
   color: #fff;
-  position: fixed;
+
+  /*
+  原生滚动需要的fixed属性
+   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 1; */
 }
 
 .scroll-content {
   /* background: red; */
-  position: absolute;
   overflow: hidden;
+  position: absolute;
   top: 44px;
   bottom: 49px;
   left: 0;
   right: 0;
 }
-.fixed {
-  position: fixed;
-  top: 44px;
-  left: 0;
-  right: 0;
+.tab-control-top {
+  position: relative;
+  z-index: 1;
 }
 </style>
