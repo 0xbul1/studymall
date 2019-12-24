@@ -6,7 +6,7 @@
     <tab-control
       :titles="['流行', '新款', '精选']"
       @tabClick="tabClick"
-      ref="tabControl"
+      ref="tabControlTop"
       class="tab-control-top"
       v-show="isTabFixed"
     />
@@ -25,7 +25,7 @@
       <tab-control
         :titles="['流行', '新款', '精选']"
         @tabClick="tabClick"
-        ref="tabControl"
+        ref="tabControlBottom"
       />
       <goods-list :goods="showGoods" />
     </scroll>
@@ -123,6 +123,8 @@ export default {
           this.currentType = "sell";
           break;
       }
+      this.$refs.tabControlTop.currentIndex = index;
+      this.$refs.tabControlBottom.currentIndex = index;
     },
 
     //点击回到顶部
@@ -143,7 +145,7 @@ export default {
     // 轮播图图片加载完成发给home组件
     swiperImageLoad() {
       //若图片没有加载，获取到的offsetTop高度是错的
-      this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop;
+      this.tabOffsetTop = this.$refs.tabControlBottom.$el.offsetTop;
     },
 
     // 数据请求的方法
