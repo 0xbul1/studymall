@@ -21,7 +21,7 @@
 import NavBar from "components/common/navbar/NavBar";
 
 export default {
-  name: "detailNavBar",
+  name: "DetailNavBar",
   data() {
     return {
       title: ["商品", "参数", "评论", "推荐"], //详情页导航栏

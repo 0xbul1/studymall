@@ -2,30 +2,47 @@
   <div id="detail">
     <detail-nav-bar />
     <detail-swiper :top-images="topImages" />
+    <detail-basic-info :goods="goods" />
+    <detail-shop-info :shop="shop" />
   </div>
 </template>
 <script>
-import detailNavBar from "./childComps/detailNavBar";
-import detailSwiper from "./childComps/detailSwiper";
+import DetailNavBar from "./childComps/DetailNavBar";
+import DetailSwiper from "./childComps/DetailSwiper";
+import DetailBasicInfo from "./childComps/DetailBasicInfo";
+import DetailShopInfo from "./childComps/DetailShopInfo";
 
-import { getDetail } from "network/detail";
+import { getDetail, Goods, Shops } from "network/detail";
+
 export default {
   name: "Detail",
   data() {
     return {
       iid: null, //具体商品详情的id
-      topImages: []
+      topImages: [],
+      goods: {},
+      shop: {}
     };
   },
   created() {
     this.iid = this.$route.params.iid;
     getDetail(this.iid).then(res => {
-      this.topImages = res.result.itemInfo.topImages;
+      console.log(res);
+      const data = res.result;
+      this.topImages = data.itemInfo.topImages; //详情页轮播图片
+      this.goods = new Goods( //详情页整合的商品数据
+        data.itemInfo,
+        data.columns,
+        data.shopInfo.services
+      );
+      this.shop = new Shops(data.shopInfo);
     });
   },
   components: {
-    detailNavBar,
-    detailSwiper
+    DetailNavBar,
+    DetailSwiper,
+    DetailBasicInfo,
+    DetailShopInfo
   }
 };
 </script>

@@ -8,7 +8,7 @@
 <script>
 import { Swiper, SwiperItem } from "components/common/swiper";
 export default {
-  name: "detailSwiper",
+  name: "DetailSwiper",
   props: {
     topImages: {
       type: Array,
