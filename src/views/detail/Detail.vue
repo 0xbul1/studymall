@@ -46,4 +46,10 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+#detail {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+</style>
