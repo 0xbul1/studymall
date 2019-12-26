@@ -10,7 +10,8 @@
       <img
         v-for="(item, index) in detailGoodsInfo.detailImage[0].list"
         :src="item"
-        alt=""
+        :key="index"
+        @load="imgLoad"
       />
     </div>
   </div>
@@ -25,6 +26,26 @@ export default {
       default() {
         return {};
       }
+    }
+  },
+  data() {
+    return {
+      count: 0,
+      imagesLength: 0 //加载的图片的长度
+    };
+  },
+  methods: {
+    imgLoad() {
+      // 判断所有的图片都加载完成，进行一次回调
+      // this.count += 1;
+      // if (this.count === this.imagesLength) {
+      this.$emit("imageLoad");
+      // }
+    }
+  },
+  watch: {
+    detailGoodsInfo() {
+      this.imagesLength = this.detailGoodsInfo.detailImage[0].list.length;
     }
   }
 };

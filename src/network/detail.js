@@ -31,6 +31,7 @@ export class Goods {
 }
 
 export class Shops {
+  // 商品下面的店铺数据
   constructor(shopInfo) {
     this.logo = shopInfo.shopLogo;
     this.name = shopInfo.name;
@@ -38,5 +39,14 @@ export class Shops {
     this.sells = shopInfo.cSells;
     this.score = shopInfo.score;
     this.goodsCount = shopInfo.cGoods;
+  }
+}
+
+export class GoodsParam {
+  //商品参数
+  constructor(info, rule) {
+    this.image = info.images ? info.images[0] : "";
+    this.info = info.set;
+    this.sizes = rule.tables;
   }
 }

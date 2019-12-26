@@ -1,11 +1,16 @@
 <template>
   <div id="detail">
     <detail-nav-bar class="nav" />
-    <scroll class="detail-content">
+    <scroll class="detail-content" ref="scroll">
       <detail-swiper :top-images="topImages" />
       <detail-basic-info :goods="goods" />
       <detail-shop-info :shop="shop" />
-      <detail-goods-info :detail-goods-info="detailGoodsInfo" />
+      <detail-goods-info
+        :detail-goods-info="detailGoodsInfo"
+        @imageLoad="imageLoad"
+      />
+      <detail-param-info :param-info="paramInfo" />
+      <div><a href="">1111111111</a></div>
     </scroll>
   </div>
 </template>
@@ -15,10 +20,11 @@ import DetailSwiper from "./childComps/DetailSwiper";
 import DetailBasicInfo from "./childComps/DetailBasicInfo";
 import DetailShopInfo from "./childComps/DetailShopInfo";
 import DetailGoodsInfo from "./childComps/DetailGoodsInfo";
+import DetailParamInfo from "./childComps/DetailParamInfo";
 
 import Scroll from "components/common/scroll/Scroll";
 
-import { getDetail, Goods, Shops } from "network/detail";
+import { getDetail, Goods, Shops, GoodsParam } from "network/detail";
 
 export default {
   name: "Detail",
@@ -28,7 +34,8 @@ export default {
       topImages: [], // 详情页轮播图片
       goods: {}, //详情页商品数据
       shop: {}, //详情页店铺数据
-      detailGoodsInfo: {} //店铺信息下面的商品描述和图片等详细信息
+      detailGoodsInfo: {}, //店铺信息下面的商品描述和图片等详细信息
+      paramInfo: {} // 商品的参数（尺码等）
     };
   },
   created() {
@@ -45,6 +52,10 @@ export default {
       );
       this.shop = new Shops(data.shopInfo);
       this.detailGoodsInfo = data.detailInfo;
+      this.paramInfo = new GoodsParam(
+        data.itemParams.info,
+        data.itemParams.rule
+      );
     });
   },
   components: {
@@ -53,7 +64,15 @@ export default {
     DetailBasicInfo,
     DetailShopInfo,
     DetailGoodsInfo,
+    DetailParamInfo,
+
     Scroll
+  },
+  methods: {
+    imageLoad() {
+      // 重新计算betterscroll的高度
+      this.$refs.scroll.refresh();
+    }
   }
 };
 </script>
