@@ -24,6 +24,7 @@
   </div>
 </template>
 <script>
+import { formatDate } from "common/utils";
 export default {
   name: "DetailCommentInfo",
   props: {
@@ -35,9 +36,9 @@ export default {
     }
   },
   filters: {
-    showDate: function(value) {
+    showDate(value) {
       let date = new Date(value * 1000);
-      return formatDate(date, "yyyy-MM-dd");
+      return formatDate(date, "yyyy-MM-dd hh:mm:ss");
     }
   }
 };
