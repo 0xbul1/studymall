@@ -47,6 +47,7 @@ import { getHomeMultidata, getHomeGoods } from "network/home";
 import { Swiper, SwiperItem } from "components/common/swiper";
 
 import { debounce } from "common/utils";
+import { itemListenerMixin } from "common/mixin";
 
 export default {
   name: "Home",
@@ -61,6 +62,7 @@ export default {
     Recommend,
     FeatureView
   },
+  mixins: [itemListenerMixin],
   data() {
     return {
       banners: [], // 轮播数据
@@ -85,8 +87,8 @@ export default {
       isTopShow: false, // 控制首页回到顶部的组件显示
       tabOffsetTop: 0, // tabControl的offset值
       isTabFixed: false, //控制tabcontrol是否吸顶
-      saveY: 0, // 保存当前页面的位置信息
-      itemImageListener: null //箭头函数监听
+      saveY: 0 // 保存当前页面的位置信息
+      // itemImageListener: null //箭头函数监听
     };
   },
   computed: {
@@ -103,12 +105,12 @@ export default {
   },
   mounted() {
     // 图片加载完成重新计算beterscroll的防抖
-    const refresh = debounce(this.$refs.scroll.refresh, 50);
-    this.itemImageListener = () => {
-      refresh();
-    };
-    // this.$refs.scroll.refresh();
-    this.$bus.$on("goodItemImageLoad", this.itemImageListener);
+    // const refresh = debounce(this.$refs.scroll.refresh, 50);
+    // this.itemImageListener = () => {
+    //   refresh();
+    // };
+    // // this.$refs.scroll.refresh();
+    // this.$bus.$on("goodItemImageLoad", this.itemImageListener);
   },
   activated() {
     this.$refs.scroll.scrollTo(0, this.saveY, 0);
