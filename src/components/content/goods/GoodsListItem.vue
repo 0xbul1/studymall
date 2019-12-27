@@ -27,7 +27,16 @@ export default {
     }
   },
   methods: {
+    //详情的推荐使用的是goodsitem组件，但是goodsitem组件会发送给首页一个全局事件，但是我实在详情页调用不需要，这是一方面可以用路由判断，另一方面当首页deactived，可以取消这个事件的函数
+
     imageLoad() {
+      // 方法一
+      // if(this.$route.path.indexOf('/home')){
+      //   this.$bus.$emit("homeGoodItemImageLoad");
+      // }else if(this.$route.path.indexOf('/detail')){
+      //   this.$bus.$emit("detailGoodItemImageLoad");
+      // }
+      //方法二使用一个事件，混入
       this.$bus.$emit("goodItemImageLoad");
     },
     toGoodsDetail() {

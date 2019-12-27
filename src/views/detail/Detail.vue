@@ -27,6 +27,7 @@ import DetailCommentInfo from "./childComps/DetailCommentInfo";
 import Scroll from "components/common/scroll/Scroll";
 import GoodsList from "components/content/goods/GoodsList";
 
+import { debounce } from "common/utils";
 import {
   getDetail,
   getRecommend,
@@ -46,7 +47,8 @@ export default {
       detailGoodsInfo: {}, //店铺信息下面的商品描述和图片等详细信息
       paramInfo: {}, // 商品的参数（尺码等）
       commentInfo: {}, //评论信息
-      recommends: []
+      recommends: [], //推荐数据
+      itemImageListener: null //箭头函数监听
     };
   },
   created() {
@@ -92,6 +94,16 @@ export default {
       // 重新计算betterscroll的高度
       this.$refs.scroll.refresh();
     }
+  },
+  mounted() {
+    const refresh = debounce(this.$refs.scroll.refresh, 50);
+    this.itemImageListener = () => {
+      refresh();
+    };
+    this.$bus.$on("goodItemImageLoad", this.itemImageListener);
+  },
+  destroyed() {
+    this.$bus.$off("goodItemImageLoad", this.itemImageListener);
   }
 };
 </script>
