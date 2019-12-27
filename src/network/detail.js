@@ -8,6 +8,11 @@ export function getDetail(iid) {
     }
   });
 }
+export function getRecommend() {
+  return request({
+    url: "/recommend"
+  });
+}
 // class Person {
 //   constructor (name, age) {
 //     this.name = name;

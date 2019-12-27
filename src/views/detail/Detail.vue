@@ -11,6 +11,7 @@
       />
       <detail-param-info :param-info="paramInfo" />
       <detail-comment-info :commentInfo="commentInfo" />
+      <goods-list :goods="recommends" class="recommend"></goods-list>
     </scroll>
   </div>
 </template>
@@ -24,8 +25,15 @@ import DetailParamInfo from "./childComps/DetailParamInfo";
 import DetailCommentInfo from "./childComps/DetailCommentInfo";
 
 import Scroll from "components/common/scroll/Scroll";
+import GoodsList from "components/content/goods/GoodsList";
 
-import { getDetail, Goods, Shops, GoodsParam } from "network/detail";
+import {
+  getDetail,
+  getRecommend,
+  Goods,
+  Shops,
+  GoodsParam
+} from "network/detail";
 
 export default {
   name: "Detail",
@@ -37,14 +45,15 @@ export default {
       shop: {}, //详情页店铺数据
       detailGoodsInfo: {}, //店铺信息下面的商品描述和图片等详细信息
       paramInfo: {}, // 商品的参数（尺码等）
-      commentInfo: {} //评论信息
+      commentInfo: {}, //评论信息
+      recommends: []
     };
   },
   created() {
     this.iid = this.$route.params.iid;
+    // 获取详情数据
     getDetail(this.iid).then(res => {
       //请求接口数据
-      console.log(res);
       const data = res.result;
       this.topImages = data.itemInfo.topImages;
       this.goods = new Goods(
@@ -62,6 +71,9 @@ export default {
         this.commentInfo = data.rate.list[0];
       }
     });
+    getRecommend().then(res => {
+      this.recommends = res.data.list;
+    });
   },
   components: {
     DetailNavBar,
@@ -72,7 +84,8 @@ export default {
     DetailParamInfo,
     DetailCommentInfo,
 
-    Scroll
+    Scroll,
+    GoodsList
   },
   methods: {
     imageLoad() {
@@ -97,5 +110,15 @@ export default {
   position: relative;
   background: #fff;
   z-index: 1;
+}
+.recommend {
+  padding-top: 10px;
+}
+.recommend::before {
+  content: "推荐你看看这些";
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 0;
 }
 </style>

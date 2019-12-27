@@ -1,9 +1,5 @@
 # @url=http://106.54.54.237:8000/api/w1/
 @url=http://123.207.32.32:8000/api/w1/
-# @url=https://ele-interface.herokuapp.com/api/profile/shopping
-# GET {{url}}api/profile/shopping
-
-
 
 ###
 GET {{url}}home/multidata 
@@ -14,4 +10,9 @@ GET {{url}}home/data?type=pop&page=1
 ###
 GET {{url}}detail?iid=1m70y5k
 
+###
+GET {{url}}recommend
 
+# 米斯特吴的接口
+# @url=https://ele-interface.herokuapp.com/api/profile/shopping
+# GET {{url}}api/profile/shopping
