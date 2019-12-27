@@ -10,7 +10,7 @@
         @imageLoad="imageLoad"
       />
       <detail-param-info :param-info="paramInfo" />
-      <div><a href="">1111111111</a></div>
+      <detail-comment-info :commentInfo="commentInfo" />
     </scroll>
   </div>
 </template>
@@ -21,6 +21,7 @@ import DetailBasicInfo from "./childComps/DetailBasicInfo";
 import DetailShopInfo from "./childComps/DetailShopInfo";
 import DetailGoodsInfo from "./childComps/DetailGoodsInfo";
 import DetailParamInfo from "./childComps/DetailParamInfo";
+import DetailCommentInfo from "./childComps/DetailCommentInfo";
 
 import Scroll from "components/common/scroll/Scroll";
 
@@ -35,7 +36,8 @@ export default {
       goods: {}, //详情页商品数据
       shop: {}, //详情页店铺数据
       detailGoodsInfo: {}, //店铺信息下面的商品描述和图片等详细信息
-      paramInfo: {} // 商品的参数（尺码等）
+      paramInfo: {}, // 商品的参数（尺码等）
+      commentInfo: {} //评论信息
     };
   },
   created() {
@@ -56,6 +58,9 @@ export default {
         data.itemParams.info,
         data.itemParams.rule
       );
+      if (data.rate.cRate !== 0) {
+        this.commentInfo = data.rate.list[0];
+      }
     });
   },
   components: {
@@ -65,6 +70,7 @@ export default {
     DetailShopInfo,
     DetailGoodsInfo,
     DetailParamInfo,
+    DetailCommentInfo,
 
     Scroll
   },

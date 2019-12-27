@@ -14,6 +14,24 @@
         @load="imgLoad"
       />
     </div>
+    <!-- <div class="info-key">{{ detailGoodsInfo.detailImage[1].key }}</div>
+    <div class="info-list">
+      <img
+        v-for="(item, index) in detailGoodsInfo.detailImage[1].list"
+        :src="item"
+        :key="index"
+        @load="imgLoad"
+      />
+    </div>
+    <div class="info-key">{{ detailGoodsInfo.detailImage[2].key }}</div>
+    <div class="info-list">
+      <img
+        v-for="(item, index) in detailGoodsInfo.detailImage[2].list"
+        :src="item"
+        :key="index"
+        @load="imgLoad"
+      />
+    </div> -->
   </div>
 </template>
 
