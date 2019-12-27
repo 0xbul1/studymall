@@ -163,7 +163,7 @@ export default {
       this.tabOffsetTop = this.$refs.tabControlBottom.$el.offsetTop;
     },
 
-    // 数据请求的方法
+    // 数据请求的方 法
 
     // 请求轮播图和推荐数据
     getHomeMultidata() {
